@@ -9,9 +9,32 @@ const chaosLevelSelect = document.getElementById("chaos-level");
 const mainPanel = document.getElementById("main-panel");
 const achievementsList = document.getElementById("achievements-list");
 const popupsContainer = document.getElementById("popups-container");
+const timerDisplay = document.getElementById("timer-display") || minutesEl.parentNode;
+
+// Create Time Input dynamically
+const timeInputContainer = document.createElement("div");
+timeInputContainer.style.textAlign = "center";
+timeInputContainer.style.marginBottom = "10px";
+timeInputContainer.innerHTML = `
+    <label for="time-input" style="color: rgba(255,255,255,0.8); margin-right: 10px; font-weight: 600;">Minutes:</label>
+    <input type="number" id="time-input" value="25" min="1" style="width: 70px; padding: 5px; border-radius: 5px; border: 1px solid rgba(255,255,255,0.3); background: rgba(0,0,0,0.2); color: white; font-family: inherit; font-size: 1rem; outline: none; text-align: center;">
+`;
+timerDisplay.parentNode.insertBefore(timeInputContainer, timerDisplay);
+const timeInput = document.getElementById("time-input");
+
+timeInput.addEventListener("input", () => {
+    if (!isRunning) {
+        let val = parseInt(timeInput.value);
+        if (isNaN(val) || val <= 0) val = 1;
+        initialTime = val * 60;
+        time = initialTime;
+        updateDisplay();
+    }
+});
 
 // State
-let time = 1500; // 25 minutes
+let initialTime = 1500; // 25 minutes
+let time = initialTime;
 let interval = null;
 let chaosInterval = null;
 let isRunning = false;
@@ -70,6 +93,8 @@ function updateDisplay() {
 function startTimer() {
     if (isRunning) return;
     isRunning = true;
+    timeInput.disabled = true;
+    timeInput.style.opacity = "0.5";
     
     // Resume audio context if it requires user interaction
     if (audioCtx.state === 'suspended') {
@@ -103,6 +128,8 @@ function pauseTimer() {
     clearInterval(interval);
     clearInterval(chaosInterval);
     isRunning = false;
+    timeInput.disabled = false;
+    timeInput.style.opacity = "1";
     messageBox.innerText = "Wow, giving up already? Typical.";
     playAnnoyingSound();
 }
@@ -111,7 +138,9 @@ function resetTimer() {
     clearInterval(interval);
     clearInterval(chaosInterval);
     isRunning = false;
-    time = 1500;
+    timeInput.disabled = false;
+    timeInput.style.opacity = "1";
+    time = initialTime;
     updateDisplay();
     messageBox.innerText = "Restarting? Make up your mind.";
     document.body.className = '';
