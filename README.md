@@ -1,4 +1,4 @@
-# Focus? Never Heard of Her.
+# Focus? Never Heard of It.
 
 A chaotic productivity timer that humorously disrupts the user while tracking study sessions. Built to explore UI interaction, timing logic, and creative UX design.
 
