@@ -2,6 +2,10 @@
 
 A chaotic productivity timer that humorously disrupts the user while tracking study sessions. Built to explore UI interaction, timing logic, and creative UX design.
 
+## 🌐 Live Demo
+
+[![Live Demo](https://img.shields.io/badge/Live-Demo-green?style=for-the-badge)](https://chaos-pomodoro.vercel.app/)
+
 ## Features
 
 - **Timer Engine:** Standard pomodoro 25-minute timer but with a twist.
@@ -15,12 +19,3 @@ A chaotic productivity timer that humorously disrupts the user while tracking st
 - Modern CSS (Flexbox/Grid, Dark Mode, Animations, Glassmorphism)
 - Vanilla JavaScript (DOM manipulation, Interval logic, AudioContext API)
 
-## How to run locally
-No build process is required! Just open `index.html` in your favorite web browser or start a local HTTP server:
-```bash
-python -m http.server 8000
-```
-Then visit `http://localhost:8000`.
-
-## Deployment
-Ready to be deployed directly via Vercel as a static site.
