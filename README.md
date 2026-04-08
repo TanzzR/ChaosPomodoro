@@ -8,8 +8,8 @@ A chaotic productivity timer that humorously disrupts the user while tracking st
 
 ## Features
 
-- **Timer Engine:** Standard pomodoro 25-minute timer but with a twist.
-- **Chaos Engine:** Periodically delivers annoying random insults, fake motivational quotes, and chaotic shifts in UI and colors.
+- **Timer Engine:** Standard pomodoro 25-minute timer but with a twist! (but you can change manually the timer however you want).
+- **Chaos Engine:** Periodically delivers annoying random insults, fake motivational quotes, and chaotic shifts in UI and colors. 
 - **Micro-Animations & Premium UI:** Using modern glassmorphism UI, making the hilarious user experience contrast with a stunning aesthetic.
 - **Achievements Base:** Includes mocked achievements that actively poke fun at your inability to focus.
 - **Sound Effects:** In-browser synthesized sounds to annoy you.
