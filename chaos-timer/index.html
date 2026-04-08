@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus? Never Heard of Her.</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Fake popups container -->
+    <div id="popups-container"></div>
+    
+    <!-- Chaos Level Control -->
+    <div class="chaos-config">
+        <label for="chaos-level">Chaos Level: </label>
+        <select id="chaos-level">
+            <option value="mild">Baby (Mild)</option>
+            <option value="normal" selected>Normal (Standard)</option>
+            <option value="extreme">Psychopath (Extreme)</option>
+        </select>
+    </div>
+
+    <!-- Main Container -->
+    <main class="glass-panel" id="main-panel">
+        <div class="header">
+            <h1>Focus? Never Heard of Her.</h1>
+            <p class="subtitle">A totally normal study timer.</p>
+        </div>
+
+        <!-- Timer Display -->
+        <div class="timer-display" id="timer-display">
+            <span id="minutes">25</span>:<span id="seconds">00</span>
+        </div>
+
+        <!-- Fake Progress / Insults Box -->
+        <div class="message-box" id="message-box">
+            Ready to pretend to study? 🥱
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button id="start-btn" class="btn primary">Start</button>
+            <button id="pause-btn" class="btn secondary">Pause</button>
+            <button id="reset-btn" class="btn danger">Reset</button>
+        </div>
+    </main>
+
+    <!-- Fake Achievements Sidebar -->
+    <aside class="achievements-panel" aria-label="Fake Achievements">
+        <h3>Achievements</h3>
+        <ul id="achievements-list">
+            <li class="locked">🏆 Stared at Timer (0/5 min)</li>
+            <li class="locked">📱 Phone Touched (0/1 times)</li>
+            <li class="locked">😭 Mental Breakdown (0/1)</li>
+        </ul>
+    </aside>
+
+    <script src="script.js"></script>
+</body>
+</html>

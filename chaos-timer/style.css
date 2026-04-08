@@ -1,0 +1,294 @@
+:root {
+    --bg-color: #0f172a;
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --glass-bg: rgba(30, 41, 59, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --primary-color: #3b82f6;
+    --primary-hover: #2563eb;
+    --secondary-color: #475569;
+    --secondary-hover: #334155;
+    --danger-color: #ef4444;
+    --danger-hover: #dc2828;
+    --accent: #8b5cf6;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+    transition: all 0.3s ease;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    background: radial-gradient(circle at 50% 50%, #1e1b4b, #0f172a);
+    transition: background 1s ease-in-out;
+}
+
+/* Dynamic background chaos class */
+body.chaos-mode-1 { background: radial-gradient(circle at 20% 80%, #4c1d95, #0f172a); }
+body.chaos-mode-2 { background: radial-gradient(circle at 80% 20%, #831843, #0f172a); }
+body.chaos-mode-3 { background: radial-gradient(circle at 50% 50%, #14532d, #0f172a); }
+body.chaos-mode-4 { filter: invert(0.1); }
+body.chaos-mode-extreme { animation: epileptic 0.5s infinite; }
+
+@keyframes epileptic {
+    0% { filter: hue-rotate(0deg); }
+    50% { filter: hue-rotate(180deg); }
+    100% { filter: hue-rotate(360deg); }
+}
+
+.chaos-config {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid var(--glass-border);
+    z-index: 100;
+}
+
+.chaos-config select {
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--glass-border);
+    padding: 5px;
+    border-radius: 4px;
+    outline: none;
+    font-family: 'Outfit', sans-serif;
+}
+
+.chaos-config select option {
+    background: var(--bg-color);
+}
+
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 3rem;
+    text-align: center;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+/* Add jitter animation class for chaos */
+.jitter {
+    animation: jitter 0.2s infinite;
+}
+
+@keyframes jitter {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    25% { transform: translate(-1px, -2px) rotate(-1deg); }
+    50% { transform: translate(-3px, 0px) rotate(1deg); }
+    75% { transform: translate(2px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -1px) rotate(-1deg); }
+}
+
+.spin-slow {
+    animation: spin 30s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    background: linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.timer-display {
+    font-size: 8rem;
+    font-weight: 900;
+    line-height: 1;
+    margin: 2rem 0;
+    font-variant-numeric: tabular-nums;
+    text-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+    user-select: none;
+    cursor: default;
+}
+
+.message-box {
+    background: rgba(0, 0, 0, 0.3);
+    border-left: 4px solid var(--accent);
+    padding: 1rem;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    font-style: italic;
+    font-weight: 300;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Buttons */
+.controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+.btn:active::after {
+    width: 300px;
+    height: 300px;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn.primary { background: var(--primary-color); color: white; }
+.btn.primary:hover { background: var(--primary-hover); }
+.btn.secondary { background: var(--secondary-color); color: white; }
+.btn.secondary:hover { background: var(--secondary-hover); }
+.btn.danger { background: var(--danger-color); color: white; }
+.btn.danger:hover { background: var(--danger-hover); }
+
+/* Run away button for extreme chaos */
+.run-away {
+    position: absolute !important;
+}
+
+/* Features */
+.achievements-panel {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    padding: 1.5rem;
+    border-radius: 12px;
+    z-index: 10;
+}
+
+.achievements-panel h3 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    color: var(--accent);
+}
+
+.achievements-panel ul {
+    list-style: none;
+}
+
+.achievements-panel li {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+    transition: color 0.3s;
+}
+
+.achievements-panel li.unlocked {
+    color: #10b981;
+    text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+    animation: pop 0.3s ease-out forwards;
+}
+
+@keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Fake Popups */
+.fake-popup {
+    position: absolute;
+    background: var(--glass-bg);
+    border: 1px solid var(--danger-color);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(239, 68, 68, 0.3);
+    z-index: 1000;
+    pointer-events: none;
+    animation: slideIn 0.3s ease-out forwards;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Make it responsive */
+@media (max-width: 768px) {
+    .glass-panel {
+        padding: 2rem;
+        margin-top: 5rem;
+    }
+    
+    .timer-display {
+        font-size: 5rem;
+    }
+
+    .header h1 {
+        font-size: 1.8rem;
+    }
+
+    .chaos-config {
+        top: 10px;
+        left: 10px;
+    }
+
+    .achievements-panel {
+        position: static;
+        margin-top: 2rem;
+        width: 90%;
+        max-width: 500px;
+    }
+}
