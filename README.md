@@ -4,7 +4,7 @@ A chaotic productivity timer that humorously disrupts the user while tracking st
 
 ## 🌐 Live Demo
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-green?style=for-the-badge)](https://chaos-pomodoro.vercel.app/)
+👉 [Try Chaos Pomodoro](https://chaos-pomodoro.vercel.app/)
 
 ## Features
 
